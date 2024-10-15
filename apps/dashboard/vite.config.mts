@@ -158,7 +158,8 @@ export default defineConfig(({ mode }) => {
         //     },
         // },
         server: {
-            port: 3000,
+            host: true,
+            port: 8080,
             proxy: {
                 '/orchestrator': {
                     target: TARGET_URL,
