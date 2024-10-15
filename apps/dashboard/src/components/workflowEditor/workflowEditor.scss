@@ -1,0 +1,135 @@
+/*
+ * Copyright (c) 2024. Devtron Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@keyframes openCIPipelineBanner {
+    from {
+        top: -40px;
+    }
+
+    to {
+        top: 8px;
+    }
+}
+
+.workflow-editor {
+    min-height: 100%;
+    overflow: visible;
+    min-width: 840px;
+    padding: 16px 20px;
+    .open-cipipeline-banner {
+        top: -40px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        animation-name: openCIPipelineBanner;
+        animation-timing-function: ease;
+        animation-duration: 300ms;
+        animation-delay: 500ms;
+        animation-fill-mode: forwards;
+    }
+}
+.create-here {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 125px;
+    width: 300px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.form__title {
+    &.form__title--workflow-editor {
+        margin-top: 20px;
+    }
+}
+.form__subtitle {
+    &.form__subtitle--workflow-editor {
+        margin-top: 4px;
+    }
+}
+.pipeline-select-container {
+    width: 320px;
+    box-shadow: 0 6px 12px -3px rgba(0, 56, 112, 0.3);
+}
+.pipeline-select-item {
+    &:hover {
+        background-color: var(--N50);
+    }
+}
+.pipeline-select-container__err-text {
+    color: var(--R500);
+}
+.pipeline-select__button {
+    width: 200px;
+    height: 64px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    border: solid 1px var(--N200);
+    background-color: var(--white);
+    border-style: dashed;
+    position: relative;
+    z-index: 3;
+}
+.cd-success-icon-container {
+    height: 60px;
+}
+.close-button-container {
+    text-align: right;
+}
+.action-card {
+    &:hover {
+        background: var(--N50);
+    }
+}
+.webhook-tippy-card-container {
+    .webhook-tippy-card {
+        background-color: var(--tippy-card-black-bg);
+        position: fixed;
+        z-index: 6;
+        right: 20px;
+        top: -100px;
+    }
+    .webhook-icon-white {
+        path[fill='#4A4A4A'] {
+            fill: var(--N0);
+        }
+    }
+    .arrow-down {
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 12px solid var(--tippy-card-black-bg);
+        right: 50%;
+        position: fixed;
+        top: 85px;
+    }
+}
+
+.floating-scoped-variables-widget {
+    z-index: 21;
+    position: fixed;
+    bottom: 108px;
+    right: 96px;
+}
+
+.workflow-options-modal {
+    margin: 0 auto;
+    width: 650px;
+    margin-top: 40px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+    background: var(--N0);
+}

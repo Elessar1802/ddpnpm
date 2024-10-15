@@ -1,0 +1,581 @@
+/*
+ * Copyright (c) 2024. Devtron Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@mixin flex($horizontal, $vertical) {
+    display: flex;
+    #{$horizontal}: center;
+    #{$vertical}: center;
+
+    &.left {
+        #{$horizontal}: flex-start;
+    }
+
+    &.right {
+        #{$horizontal}: flex-end;
+    }
+
+    &.top {
+        #{$vertical}: flex-start;
+    }
+
+    &.bottom {
+        #{$vertical}: flex-end;
+    }
+}
+
+.flex {
+    @include flex(justify-content, align-items);
+
+    &.column {
+        @include flex(align-items, justify-content);
+        flex-direction: column;
+    }
+}
+
+.flexbox {
+    display: flex;
+}
+
+.flexbox-imp {
+    display: flex !important;
+}
+
+.flexbox-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-grow-none {
+    flex-grow: 0 !important;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.flex-grow-1-imp {
+    flex-grow: 1 !important;
+}
+
+.flex-justify-start {
+    justify-content: flex-start !important;
+}
+
+.flex-justify-end {
+    justify-content: flex-end !important;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-justify {
+    justify-content: space-between !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-align-center {
+    align-items: center;
+}
+
+.display-grid {
+    display: grid;
+}
+
+.grid-auto-flow-column {
+    grid-auto-flow: column;
+}
+
+// margins and paddings from 0-40
+$margins: (
+    mb: margin-bottom,
+    mt: margin-top,
+    ml: margin-left,
+    mr: margin-right,
+    m: margin,
+    pb: padding-bottom,
+    pt: padding-top,
+    pl: padding-left,
+    pr: padding-right,
+    p: padding,
+    px: padding-inline,
+    py: padding-block,
+);
+
+@each $margin, $style in $margins {
+    @for $i from 0 through 42 {
+        $tempStyle: $style;
+
+        .#{$margin}-#{$i} {
+            #{$tempStyle}: 0px + $i;
+        }
+    }
+}
+
+// font-weight from 100-700
+@for $i from 1 through 7 {
+    .fw-#{$i} {
+        font-weight: 100 * $i;
+    }
+}
+
+// font-size from 10-24
+@for $i from 8 through 40 {
+    .fs-#{$i} {
+        font-size: 0px + $i;
+    }
+}
+
+//color from B,N,G,Y,R and 100 to 900
+$colors: B, N, G, Y, R, V, O;
+$color-suffix: 00;
+
+@each $color in $colors {
+    @for $i from 0 through 9 {
+        .c#{to-lower-case($color)}-#{$i} {
+            color: var(--#{$color}#{$i * 100});
+        }
+
+        .bc#{to-lower-case($color)}-#{$i} {
+            background-color: var(--#{$color}#{$i * 100});
+        }
+
+        .e#{to-lower-case($color)}-#{$i} {
+            border-color: var(--#{$color}#{$i * 100});
+            border-style: solid;
+        }
+
+        .sc#{to-lower-case($color)}-#{$i} {
+            stroke: var(--#{$color}#{$i * 100});
+
+            path {
+                stroke: var(--#{$color}#{$i * 100});
+            }
+        }
+
+        .fc#{to-lower-case($color)}-#{$i} {
+            fill: var(--#{$color}#{$i * 100});
+
+            path {
+                fill: var(--#{$color}#{$i * 100});
+            }
+        }
+    }
+}
+
+// For generating shades of 50, 150, ..., 850.
+@each $color in $colors {
+    @for $i from 50 through 50 {
+        .c#{to-lower-case($color)}-#{$i} {
+            color: var(--#{$color}#{$i});
+        }
+
+        .bc#{to-lower-case($color)}-#{$i} {
+            background-color: var(--#{$color}#{$i});
+        }
+
+        .e#{to-lower-case($color)}-#{$i} {
+            border-color: var(--#{$color}#{$i});
+            border-style: solid;
+        }
+
+        .sc#{to-lower-case($color)}-#{$i} {
+            stroke: var(--#{$color}#{$i});
+
+            path {
+                stroke: var(--#{$color}#{$i});
+            }
+        }
+
+        .fc#{to-lower-case($color)}-#{$i} {
+            fill: var(--#{$color}#{$i});
+
+            path {
+                fill: var(--#{$color}#{$i});
+            }
+        }
+    }
+}
+
+// border-radius
+@for $i from 0 through 16 {
+    .br-#{$i} {
+        border-radius: 0px + $i;
+    }
+
+    .bw-#{$i} {
+        border-width: 0px + $i;
+    }
+}
+
+.mono {
+    font-family: Inconsolata, monospace;
+}
+
+.font-merriweather {
+    font-family: 'Merriweather';
+}
+
+@mixin cta($bg, $color, $border, $cursor: pointer, $override-svg: true) {
+    background: $bg;
+    color: $color;
+    border: 1px solid $border;
+    cursor: $cursor;
+
+    @if $override-svg {
+        svg {
+            path {
+                fill: $color;
+            }
+        }
+    }
+}
+
+@mixin cta-disabled-opacity($bg, $color, $border) {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background: $bg;
+        color: $color;
+        border: 1px solid $border;
+        cursor: not-allowed;
+    }
+}
+
+.cta,
+.cta-with-img {
+    height: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    outline: none;
+    min-width: 56px;
+    text-transform: capitalize;
+    line-height: 40px;
+    text-align: center;
+
+    &:not(&__no-svg-override) {
+        @include cta(var(--B500), var(--white), transparent);
+
+        &:hover,
+        &:focus {
+            @include cta(#004f9e, var(--white), transparent);
+        }
+    }
+
+    &__no-svg-override {
+        @include cta(var(--B500), var(--white), transparent, pointer, false);
+
+        &:hover,
+        &:focus {
+            @include cta(#004f9e, var(--white), transparent, pointer, false);
+        }
+    }
+
+    &.disabled-opacity {
+        @include cta-disabled-opacity(var(--B500), var(--white), transparent);
+    }
+
+    &.small {
+        height: 32px;
+        min-width: 64px;
+        padding: 0 12px;
+        line-height: 32px;
+    }
+
+    &.ghosted {
+        @include cta(var(--white), var(--B500), var(--B500));
+
+        &:hover {
+            @include cta(var(--B500), var(--white), var(--B500));
+        }
+    }
+
+    &.secondary {
+        @include cta(var(--white), var(--B500), var(--N200));
+
+        &:hover {
+            @include cta(var(--B100), var(--B500), var(--N200));
+        }
+    }
+
+    &.tertiary {
+        @include cta(var(--white), var(--N400), var(--white));
+
+        &:hover {
+            @include cta(var(--white), var(--N400), var(--white));
+        }
+    }
+
+    &.text {
+        @include cta(white, var(--B500), white);
+
+        &:hover,
+        &:active,
+        &:focus {
+            @include cta(white, var(--B500), white);
+        }
+    }
+
+    &.success {
+        @include cta(var(--G500), var(--N0), transparent);
+
+        &:hover,
+        &:active,
+        &:focus {
+            @include cta(var(--G600), var(--N0), transparent);
+        }
+    }
+
+    /// Button with red border and text
+    &.delete {
+        @include cta(white, var(--R500), var(--R500));
+
+        &:hover {
+            @include cta(var(--R500), white, white);
+        }
+
+        &:active,
+        &:focus {
+            @include cta(var(--R600), white, white);
+        }
+    }
+
+    /// Button with red background
+    &.danger {
+        @include cta(var(--R500), var(--N0), transparent);
+
+        &:hover,
+        &:active,
+        &:focus {
+            @include cta(var(--R600), var(--N0), transparent);
+        }
+        &.action-blocked {
+            &:hover,
+            &:active,
+            &:focus {
+                @include cta(var(--R500), var(--N0), transparent, not-allowed);
+            }
+        }
+    }
+
+    &.warning {
+        @include cta(var(--Y500), var(--N900), transparent);
+
+        &:hover,
+        &:active,
+        &:focus {
+            @include cta(var(--Y600), var(--N900), transparent);
+        }
+    }
+
+    &.cancel {
+        &:not(.cta__no-svg-override) {
+            @include cta(white, var(--N700), var(--N200));
+
+            &:hover {
+                @include cta(white, var(--N700), var(--N300));
+            }
+
+            &:active,
+            &:focus {
+                @include cta(var(--N700), white, transparent);
+            }
+        }
+
+        &.cta__no-svg-override {
+            @include cta(white, var(--N700), var(--N200), pointer, false);
+
+            &:hover {
+                @include cta(white, var(--N700), var(--N300), pointer, false);
+            }
+
+            &:active,
+            &:focus {
+                @include cta(var(--N700), white, transparent, pointer, false);
+            }
+        }
+    }
+
+    &.delete,
+    &.danger,
+    &.small,
+    &.ghosted,
+    &.secondary,
+    &.cancel,
+    &.neutral,
+    &.tertiary,
+    &.success,
+    &.warning,
+    &.text,
+    & {
+        &:not(.cta__no-svg-override) {
+            &:disabled,
+            :disabled:hover,
+            &.disabled,
+            &.disabled:hover {
+                @include cta(var(--N100), var(--N400), var(--N200), not-allowed);
+            }
+        }
+
+        &.cta__no-svg-override {
+            &:disabled,
+            :disabled:hover,
+            &.disabled,
+            &.disabled:hover {
+                @include cta(var(--N100), var(--N400), var(--N200), not-allowed, false);
+            }
+        }
+    }
+}
+
+.cta-with-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lh-1-43 {
+    line-height: 1.43;
+}
+
+.lh-1-33 {
+    line-height: 1.33;
+}
+
+.lh-1-25 {
+    line-height: 1.25;
+}
+.lh-1-5 {
+    line-height: 1.5;
+}
+
+.divider {
+    border-top: 1px solid var(--N200);
+}
+
+.sqr-44 {
+    width: 44px;
+    height: 44px;
+    background-color: var(--N100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    border-radius: 4px;
+}
+
+.lh-1-54 {
+    line-height: 1.54;
+}
+
+.lh-1-25 {
+    line-height: 1.25;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.dashed {
+    border-style: dashed !important;
+}
+
+.text-underline-dashed {
+    border-bottom: 1px dashed var(--N400);
+}
+
+.text-underline-dashed-300 {
+    border-bottom: 1px dashed var(--N300);
+}
+
+.text-underline-dashed-200 {
+    border-bottom: 1px dashed var(--N200);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 800px;
+}
+
+.modal__top-fixed {
+    height: 50px;
+}
+
+@mixin steps-with-trail($lineHeight, $stepSize, $gutterSize, $paddingLeft) {
+    list-style-type: none;
+    counter-reset: step-counter 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: $gutterSize;
+    --top-overflow: calc(calc(#{$lineHeight} - #{$stepSize}) / 2);
+    margin: 0;
+
+    &>li {
+        counter-increment: step-counter 1;
+        padding-left: $paddingLeft;
+        position: relative;
+        line-height: $lineHeight;
+    }
+
+    &>li::before {
+        position: absolute;
+        left: 0;
+        top: var(--top-overflow);
+        content: counter(step-counter);
+        height: $stepSize;
+        width: $stepSize;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 1px solid var(--N200);
+        color: var(--N900);
+    }
+
+    &>li:not(:last-of-type)::after {
+        --top: calc(#{$stepSize} + calc(calc(#{$lineHeight} - #{$stepSize}) / 2));
+        content: '';
+        position: absolute;
+        left: calc(calc(#{$stepSize}) / 2);
+        top: var(--top);
+        height: calc(100% - var(--top) + #{$gutterSize} + var(--top-overflow));
+        width: 1px;
+        background-color: var(--N200);
+    }
+}
+
+.steps-with-trail--normal {
+    @include steps-with-trail(20px, 24px, 16px, 40px)
+}

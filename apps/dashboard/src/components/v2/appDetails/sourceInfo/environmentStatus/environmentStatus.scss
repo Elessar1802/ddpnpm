@@ -1,0 +1,173 @@
+/*
+ * Copyright (c) 2024. Devtron Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.chart-upgrade-card {
+    min-width: 150px;
+    min-height: 92px;
+}
+
+.app-status-detail-modal,
+.app-notes__modal {
+    margin: auto;
+    margin-right: 0;
+    height: 100%;
+    overflow: scroll;
+}
+
+.config-error-wrap {
+    word-wrap: break-word;
+}
+
+.table__padding-left {
+    padding-left: 20px !important;
+}
+
+.table__padding-row {
+    padding-right: 20px !important;
+}
+
+.f-healthy,
+.f-deployed,
+.f-synced,
+.f-sync.ok,
+.f-running,
+.f-scalingreplicasetdown {
+    color: var(--green);
+}
+
+.f-starting,
+.f-initiating,
+.f-suspended,
+.f-switchedtoactiveservice {
+    color: var(--orange);
+}
+
+.f-degraded,
+.f-timed_out,
+.f-disconnect,
+.f-sync.failed,
+.f-failed,
+.f-unknown,
+.f-imagepullbackoff,
+.f-errimagepull,
+.f-superseded,
+.f-outofsync {
+    color: var(--R500);
+}
+
+.f-waiting {
+    color: var(--Y700);
+}
+
+.f-progressing,
+.f-inprogress,
+.f-uninstalling,
+.f-pending-install,
+.f-pending-upgrade,
+.f-pending-rollback,
+.initiated {
+    color: var(--yellow);
+}
+
+.f-queued,
+.f-missing,
+.f-unknown {
+    color: var(--N700);
+}
+
+.kind-name {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+
+    .dc__ellipsis-left {
+        text-align: left;
+    }
+}
+
+.app-status-detail__header,
+.app-notes__header {
+    position: absolute;
+    width: 100%;
+}
+
+.app-status-detail__body {
+    padding-top: 75px;
+}
+
+.app-status__message-wrapper {
+    max-height: 80px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.details-hover:hover {
+    text-decoration: underline;
+}
+
+svg.app-notes__icon {
+    path:not(:first-of-type) {
+        stroke: var(--B500);
+    }
+}
+
+.app-notes__body {
+    padding-top: 56px;
+}
+
+.app-notes__markdown {
+    padding: 10px 20px;
+    overflow-wrap: break-word;
+}
+
+.app-status-detail-modal {
+    .app-status-row {
+        display: grid;
+        grid-template-columns: 150px 200px 150px auto;
+        grid-column-gap: 16px;
+    }
+    .resource-list {
+        height: calc(100vh - 202px);
+        min-height: 220px;
+        overflow-y: auto;
+        &.with-footer {
+            height: calc(100vh - 255px);
+        }
+        .app-status-row {
+            &:hover {
+                background-color: var(--N50);
+            }
+        }
+    }
+    .footer {
+        bottom: 0;
+        width: 1024px;
+        .help-chat {
+            svg {
+                path:first-of-type {
+                    stroke: var(--B500);
+                }
+
+                path:not(:first-of-type) {
+                    fill: var(--B500);
+                }
+            }
+        }
+    }
+}

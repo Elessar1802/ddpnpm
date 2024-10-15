@@ -1,0 +1,526 @@
+/*
+ * Copyright (c) 2024. Devtron Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.global-configuration {
+    display: grid;
+    grid-template-rows: 47px 1fr;
+    grid-template-columns: 240px 1fr;
+    height: 100vh;
+
+    .dc__page-header {
+        grid-column: 1 / -1;
+    }
+
+    .global-configuration__navigation {
+        padding: 16px 12px;
+        border-right: solid 1px var(--N200);
+        background: var(--N0);
+        height: 100%;
+        overflow: scroll;
+
+        a {
+            font-size: 13px;
+            line-height: 32px;
+            color: var(--N700);
+            width: 100%;
+            border-radius: 4px;
+            padding: 0 8px;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+                background: var(--N50);
+            }
+
+            &.active-route {
+                color: var(--B500);
+                font-weight: 600;
+                background: var(--B100);
+            }
+        }
+    }
+
+    .global-configuration__error-icon {
+        margin: auto 0;
+    }
+
+    .global-configuration__component-wrapper {
+        padding: 0;
+        overflow-y: auto;
+        position: relative;
+        max-height: 100%;
+    }
+
+    .form__buttons {
+        button.cta {
+            cursor: pointer;
+            margin-left: 8px;
+        }
+    }
+
+    .form__input {
+        &.popup-body {
+            max-height: 250px;
+            height: min-content;
+
+            &:hover {
+                border: 1px solid transparent;
+            }
+        }
+    }
+
+    .protected-input__toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    textarea {
+        border-radius: 4px;
+        border: solid 1px var(--N200);
+        &.form__input--error {
+            border: solid 1px var(--R500);
+        }
+    }
+}
+
+.page-enter {
+    opacity: 0;
+}
+
+.page-enter-active {
+    opacity: 1;
+    transition: opacity 300ms linear 150ms;
+}
+
+.page-exit {
+    opacity: 1;
+}
+
+.page-exit-active {
+    opacity: 0;
+    transition: opacity 300ms linear 150ms;
+}
+
+.global-configuration__component,
+.add-notification-page {
+    margin: 0 auto;
+    max-width: 1012px;
+    padding: 24px;
+}
+
+.list {
+    height: 64px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    align-items: center;
+    background: white;
+    grid-column-gap: 16px;
+    cursor: pointer;
+
+    .toggle__switch,
+    .tooltip-button {
+        width: 32px;
+        margin-left: auto;
+        margin-bottom: 0;
+    }
+
+    .list__title {
+        font-size: 14px;
+        color: var(--N900);
+    }
+
+    .list__subtitle {
+        color: var(--N600);
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .tag {
+        height: 20px;
+        border-radius: 2px;
+        border: solid 1px #b5d3f2;
+        background-blend-mode: multiply;
+        background-image: linear-gradient(to bottom, var(--B50), var(--B50));
+        color: var(--B500);
+        font-size: 11px;
+        font-weight: 600;
+        padding: 0 6px;
+        margin-left: 8px;
+        line-height: 23px;
+    }
+}
+
+.no-grid-column {
+    grid-template-columns: none;
+    padding-left: 24px;
+}
+
+.list__add-item {
+    color: var(--B500);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.cluster-list {
+    border: 1px solid #d6dbdf;
+    margin-bottom: 16px;
+    background: white;
+    border-radius: 8px;
+
+    & > .list {
+        border: unset;
+        margin-bottom: unset;
+        grid-template-columns: 1fr 20px;
+        align-items: center;
+        border-radius: 8px;
+    }
+
+    &.cluster-list--create {
+        & > .list {
+            grid-template-columns: 24px 1fr 24px;
+        }
+
+        .list__title {
+            color: var(--B500);
+            font-weight: 600;
+        }
+    }
+
+    .cluster-environment {
+        &.cluster-environment--update {
+            .fa {
+                color: var(--B500);
+                font-size: 18px;
+            }
+        }
+    }
+
+    .environments-container {
+        padding: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-row-gap: 16px;
+        grid-column-gap: 16px;
+
+        .list {
+            border-radius: 4px;
+            border: 1px solid #d6dbdf;
+        }
+
+        .cluster-environment--create {
+            border: 1px #d6dbdf dashed;
+        }
+    }
+}
+
+.cluster-list--create {
+    border-style: dashed;
+}
+
+.cluster-icon path {
+    stroke: #06c;
+}
+
+.collapsed-list {
+    &.collapsed-list--chart {
+        border: 1px solid #d6dbdf;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+    }
+}
+
+.collapsed-list {
+    &.collapsed-list--git,
+    &.collapsed-list--docker {
+        border: 1px solid #d6dbdf;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+    }
+
+    &.collapsed-list--create {
+        .add-icon {
+            background: url('../../assets/icons/ic-add.svg');
+            width: 24px;
+            height: 24px;
+            background-size: contain;
+        }
+
+        .list__title {
+            color: var(--B500);
+            font-weight: 600;
+        }
+    }
+}
+
+.form__row--auth-type {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid #d6dbdf;
+    height: 48px;
+    border-radius: 4px;
+    align-items: center;
+
+    .flex {
+        padding-left: 12px;
+        height: 100%;
+
+        &:not(:first-child) {
+            border-left: 1px solid #d6dbdf;
+        }
+
+        input[type='radio'] {
+            margin: 0 8px 0 0;
+        }
+    }
+}
+
+.git-form {
+    padding: 0 24px;
+}
+
+.git-form {
+    .form__row--auth-type {
+        label {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.docker-form {
+    .select-button {
+        height: 100%;
+        width: 100%;
+        border: unset;
+    }
+
+    .form__buttons {
+        align-items: center;
+    }
+
+    .docker-default {
+        .form__checkbox-label {
+            margin-right: auto;
+            color: var(--N900);
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 20px;
+            font-weight: 400;
+        }
+
+        &.registry-disabled-checkbox {
+            input,
+            .form__checkbox-container {
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+.select-button--docker-register {
+    padding: 8px 0 8px 10px;
+    font-weight: 500;
+}
+
+.cluster-form {
+    .form__row--bearer-token .bearer-token {
+        display: flex;
+        width: 100%;
+
+        img {
+            margin-left: 16px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+}
+
+.environment-create-body {
+    width: 450px;
+    border-radius: 8px;
+    background: white;
+    padding: 24px;
+    margin: 5% auto auto auto;
+
+    .form__title + img {
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    .form__title {
+        font-weight: 600;
+        margin-bottom: unset;
+    }
+
+    .environment-type {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 48px;
+        border: 1px solid #d6dbdf;
+        border-radius: 4px;
+        cursor: pointer;
+
+        .form__label {
+            margin-bottom: 0;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type='radio'] {
+            margin: 0 8px 0 8px;
+            cursor: pointer;
+        }
+
+        input:checked + span {
+            color: var(--B500);
+        }
+
+        .environment--non-production {
+            border-left: 1px solid #d6dbdf;
+        }
+    }
+
+    .form__row--namespace {
+        .form__error {
+            color: --N400;
+        }
+    }
+
+    .form__row--ignore-namespace {
+        margin-bottom: 4px;
+
+        input {
+            margin-right: 8px;
+            height: 16px;
+            width: 16px;
+        }
+
+        .form__label.bold {
+            display: inline;
+        }
+    }
+
+    .form__row--warn {
+        margin-bottom: 4px;
+    }
+}
+
+.cluster-create-status {
+    padding: 8px 20px;
+    display: grid;
+    grid-template-columns: 20px auto 64px;
+    column-gap: 16px;
+}
+
+.cluster-create-status--healthy {
+    background-color: var(--G100);
+}
+
+.cluster-create-status--not-triggered {
+    background-color: var(--N100);
+}
+
+.cluster-create-status--installing {
+    background-color: var(--Y100);
+}
+
+.cluster-create-status--failed {
+    background-color: var(--R100);
+}
+
+.cluster-create-status__title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: var(--N900);
+}
+
+.cluster-create-status__status-installing {
+    path {
+        fill: var(--orange);
+    }
+}
+
+.cluster-create-status__status-failed {
+    path {
+        fill: var(--R500);
+    }
+}
+
+.cluster-create-status__button {
+    height: 20px;
+    background-color: transparent;
+    padding: 0px;
+    font-weight: 600;
+    border: none;
+    color: var(--B500);
+}
+
+.cluster-component__list {
+    list-style: none;
+    max-height: 320px;
+    overflow: auto;
+}
+
+.cluster-component__list-item {
+    padding: 13px 24px;
+    padding-right: 0px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--N100);
+
+        .cluster-component__name {
+            color: var(--B500);
+        }
+    }
+}
+
+.cluster-component__name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: var(--N900);
+}
+
+.cluster-component__status {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    color: var(--N700);
+}
+
+.align-self-top {
+    align-self: flex-start;
+}

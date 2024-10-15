@@ -1,0 +1,131 @@
+/*
+ * Copyright (c) 2024. Devtron Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.api-token-container {
+    .api-token__list {
+        height: 100%;
+        overflow: hidden;
+        min-height: 500px;
+    }
+
+    .api-list__row {
+        display: grid;
+        grid-template-columns: 24px minmax(278px, 346px) 120px 130px auto minmax(80px, 90px);
+        grid-column-gap: 16px;
+
+        .api-key-expired-icon {
+            path:first-of-type {
+                stroke: var(--R500);
+            }
+
+            path:last-of-type {
+                fill: var(--R500);
+            }
+        }
+    }
+
+    .api__row-actions {
+        display: none;
+    }
+
+    .api-list-row {
+        &:hover {
+            background-color: var(--N50);
+            .api__row-actions {
+                display: flex;
+
+                button {
+                    height: 24px;
+                }
+            }
+        }
+    }
+
+    .form__row {
+        margin-bottom: 0;
+
+        .form__label {
+            margin-bottom: 6px;
+        }
+
+        .form__input {
+            height: 36px;
+        }
+
+        .form__error {
+            display: flex !important;
+            align-items: center;
+            margin-top: 6px;
+
+            .form__icon.form__icon--error {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    .form__permission {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .search {
+        margin-right: 0;
+        margin-bottom: 0 !important;
+        background-color: white;
+
+        .search__input {
+            &.search-applied {
+                width: 90%;
+            }
+
+            &:focus {
+                border: none;
+            }
+        }
+    }
+}
+
+.generate-token-modal,
+.regenerate-token-modal {
+    top: -84px;
+
+    .modal__body {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: none;
+    }
+}
+
+.generate-token-modal {
+    .api-token-icon {
+        path:first-of-type {
+            stroke: var(--G500);
+        }
+
+        path:last-of-type {
+            fill: var(--G500);
+        }
+    }
+
+    .api-token-text {
+        width: 94%;
+    }
+}
+
+.api__list__height {
+    height: calc(100vh - 149px);
+}

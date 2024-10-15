@@ -1,0 +1,35 @@
+name: Common Lib CI
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - edited
+      - reopened
+      - ready_for_review
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    if: ${{ !github.event.pull_request.draft }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Check linting issues
+      run: npm run lint
+
+    - name: Build Lib
+      run: npm run build-lib

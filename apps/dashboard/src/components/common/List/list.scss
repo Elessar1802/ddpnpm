@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) 2024. Devtron Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.compound-list {
+    height: 64px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 24px 1fr 24px;
+    align-items: center;
+    background: white;
+    grid-column-gap: 8px;
+    cursor: pointer;
+    .toggle__switch {
+        width: 32px;
+        margin-left: auto;
+        margin-bottom: 0;
+    }
+    .list__title {
+        font-size: 14px;
+        color: var(--N900);
+    }
+    .list__subtitle {
+        color: --N400;
+        font-size: 12px;
+    }
+    .tag {
+        height: 20px;
+        border-radius: 2px;
+        border: solid 1px #b5d3f2;
+        background-blend-mode: multiply;
+        background-image: linear-gradient(to bottom, var(--B50), var(--B50));
+        color: var(--B500);
+        font-size: 11px;
+        font-weight: 600;
+        padding: 0 6px;
+        margin-left: 8px;
+        line-height: 23px;
+    }
+}
