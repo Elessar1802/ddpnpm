@@ -56,7 +56,6 @@
         "yaml": "^2.4.1"
     },
     "scripts": {
-        "prepare": "husky install",
         "lint": "tsc --noEmit && eslint 'src/**/*.{js,jsx,ts,tsx}' --max-warnings 0",
         "lint-fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
         "start": "vite --open",
@@ -116,7 +115,6 @@
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-storybook": "^0.8.0",
-        "husky": "^7.0.4",
         "jest-extended": "^2.0.0",
         "jest-junit": "^13.0.0",
         "jsdom-worker": "^0.2.1",

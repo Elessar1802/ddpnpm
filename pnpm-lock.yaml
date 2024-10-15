@@ -269,9 +269,6 @@ importers:
       eslint-plugin-storybook:
         specifier: ^0.8.0
         version: 0.8.0(eslint@8.57.1)(typescript@5.5.4)
-      husky:
-        specifier: ^7.0.4
-        version: 7.0.4
       jest-extended:
         specifier: ^2.0.0
         version: 2.1.0(jest@29.7.0(@types/node@20.11.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.11.0)(typescript@5.5.4)))
@@ -480,9 +477,6 @@ importers:
       glob:
         specifier: ^10.3.3
         version: 10.4.5
-      husky:
-        specifier: ^7.0.4
-        version: 7.0.4
       lint-staged:
         specifier: ^12.5.0
         version: 12.5.0
@@ -4193,11 +4187,6 @@ packages:
   human-signals@5.0.0:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
-
-  husky@7.0.4:
-    resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
-    engines: {node: '>=12'}
-    hasBin: true
 
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -10994,8 +10983,6 @@ snapshots:
   human-signals@2.1.0: {}
 
   human-signals@5.0.0: {}
-
-  husky@7.0.4: {}
 
   iconv-lite@0.4.24:
     dependencies:
