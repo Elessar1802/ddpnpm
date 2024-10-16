@@ -523,7 +523,138 @@ importers:
         specifier: 5.0.1
         version: 5.0.1(typescript@5.5.4)(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1))
 
-  packages/devtron-fe-lib: {}
+  packages/devtron-fe-lib:
+    dependencies:
+      '@devtron-labs/devtron-fe-common-lib':
+        specifier: workspace:*
+        version: link:../devtron-fe-common-lib
+      fast-json-patch:
+        specifier: ^3.1.1
+        version: 3.1.1
+      jsonpath-plus:
+        specifier: ^9.0.0
+        version: 9.0.0
+      moment-timezone:
+        specifier: ^0.5.45
+        version: 0.5.46
+      react:
+        specifier: ^17.0.2
+        version: 17.0.2
+      react-dom:
+        specifier: ^17.0.2
+        version: 17.0.2(react@17.0.2)
+      react-ga4:
+        specifier: ^1.4.1
+        version: 1.4.1
+      react-router-dom:
+        specifier: ^5.3.0
+        version: 5.3.4(react@17.0.2)
+      react-select:
+        specifier: 5.8.0
+        version: 5.8.0(@types/react@17.0.39)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      sass:
+        specifier: ^1.69.7
+        version: 1.79.5
+      tslib:
+        specifier: 2.7.0
+        version: 2.7.0
+      yaml:
+        specifier: ^2.4.1
+        version: 2.6.0
+    devDependencies:
+      '@esbuild-plugins/node-globals-polyfill':
+        specifier: 0.2.3
+        version: 0.2.3(esbuild@0.23.1)
+      '@sentry/browser':
+        specifier: ^7.31.1
+        version: 7.50.0
+      '@tippyjs/react':
+        specifier: ^4.2.0
+        version: 4.2.6(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@types/react':
+        specifier: 17.0.39
+        version: 17.0.39
+      '@types/react-dom':
+        specifier: 17.0.13
+        version: 17.0.13
+      '@types/react-router-dom':
+        specifier: ^5.3.3
+        version: 5.3.3
+      '@typescript-eslint/eslint-plugin':
+        specifier: 8.3.0
+        version: 8.3.0(@typescript-eslint/parser@8.3.0(eslint@8.57.1)(typescript@5.5.4))(eslint@8.57.1)(typescript@5.5.4)
+      '@typescript-eslint/parser':
+        specifier: 8.3.0
+        version: 8.3.0(eslint@8.57.1)(typescript@5.5.4)
+      '@vitejs/plugin-react':
+        specifier: 4.3.1
+        version: 4.3.1(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1))
+      dayjs:
+        specifier: ^1.11.8
+        version: 1.11.13
+      dompurify:
+        specifier: ^3.0.2
+        version: 3.1.7
+      eslint:
+        specifier: ^8.56.0
+        version: 8.57.1
+      eslint-config-airbnb:
+        specifier: ^19.0.4
+        version: 19.0.4(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.3.0(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1))(eslint-plugin-jsx-a11y@6.10.0(eslint@8.57.1))(eslint-plugin-react-hooks@4.6.2(eslint@8.57.1))(eslint-plugin-react@7.37.1(eslint@8.57.1))(eslint@8.57.1)
+      eslint-config-prettier:
+        specifier: ^9.1.0
+        version: 9.1.0(eslint@8.57.1)
+      eslint-import-resolver-typescript:
+        specifier: ^3.6.1
+        version: 3.6.3(@typescript-eslint/parser@8.3.0(eslint@8.57.1)(typescript@5.5.4))(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+      eslint-plugin-import:
+        specifier: ^2.29.1
+        version: 2.31.0(@typescript-eslint/parser@8.3.0(eslint@8.57.1)(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-plugin-jsx-a11y:
+        specifier: ^6.8.0
+        version: 6.10.0(eslint@8.57.1)
+      eslint-plugin-prettier:
+        specifier: ^5.1.2
+        version: 5.2.1(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.3.3)
+      eslint-plugin-react:
+        specifier: ^7.33.2
+        version: 7.37.1(eslint@8.57.1)
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.2(eslint@8.57.1)
+      glob:
+        specifier: ^10.3.3
+        version: 10.4.5
+      husky:
+        specifier: ^7.0.4
+        version: 7.0.4
+      lint-staged:
+        specifier: ^12.5.0
+        version: 12.5.0
+      moment:
+        specifier: ^2.30.1
+        version: 2.30.1
+      prettier:
+        specifier: ^3.1.1
+        version: 3.3.3
+      typescript:
+        specifier: 5.5.4
+        version: 5.5.4
+      vite:
+        specifier: 5.4.6
+        version: 5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1)
+      vite-plugin-dts:
+        specifier: 4.0.3
+        version: 4.0.3(@types/node@22.7.5)(rollup@4.24.0)(typescript@5.5.4)(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1))
+      vite-plugin-lib-inject-css:
+        specifier: 2.0.1
+        version: 2.0.1(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1))
+      vite-plugin-svgr:
+        specifier: ^2.4.0
+        version: 2.4.0(rollup@4.24.0)(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1))
+      vite-tsconfig-paths:
+        specifier: 5.0.1
+        version: 5.0.1(typescript@5.5.4)(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1))
 
 packages:
 
@@ -4193,6 +4324,11 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
+  husky@7.0.4:
+    resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
+    engines: {node: '>=12'}
+    hasBin: true
+
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -4954,6 +5090,9 @@ packages:
   mock-socket@9.3.1:
     resolution: {integrity: sha512-qxBgB7Qa2sEQgHFjj0dSigq7fX4k6Saisd5Nelwp2q8mlbAFh5dHV9JTTlF8viYJLSSWgMCZFUom8PJcMNBoJw==}
     engines: {node: '>= 8'}
+
+  moment-timezone@0.5.46:
+    resolution: {integrity: sha512-ZXm9b36esbe7OmdABqIWJuBBiLLwAjrN7CE+7sYdCCx82Nabt1wHDj8TVseS59QIlfFPbOoiBPm6ca9BioG4hw==}
 
   moment@2.30.1:
     resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
@@ -6342,6 +6481,11 @@ packages:
     peerDependenciesMeta:
       vite:
         optional: true
+
+  vite-plugin-lib-inject-css@2.0.1:
+    resolution: {integrity: sha512-86VU8m4t3TNPk9xfdnNDqn1OHkgrPHpP7B5wkVys4tWSLwMMIucCgJdc5wenGntLNMWKChJV0Ut3qGH6iGojMg==}
+    peerDependencies:
+      vite: '*'
 
   vite-plugin-lib-inject-css@2.1.1:
     resolution: {integrity: sha512-RIMeVnqBK/8I0E9nnQWzws6pdj5ilRMPJSnXYb6nWxNR4EmDPnksnb/ACoR5Fy7QfzULqS4gtQMrjwnNCC9zoA==}
@@ -10989,6 +11133,8 @@ snapshots:
 
   human-signals@5.0.0: {}
 
+  husky@7.0.4: {}
+
   iconv-lite@0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -11890,6 +12036,10 @@ snapshots:
       ufo: 1.5.4
 
   mock-socket@9.3.1: {}
+
+  moment-timezone@0.5.46:
+    dependencies:
+      moment: 2.30.1
 
   moment@2.30.1: {}
 
@@ -13406,6 +13556,12 @@ snapshots:
       - '@types/node'
       - rollup
       - supports-color
+
+  vite-plugin-lib-inject-css@2.0.1(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1)):
+    dependencies:
+      magic-string: 0.30.12
+      picocolors: 1.1.0
+      vite: 5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1)
 
   vite-plugin-lib-inject-css@2.1.1(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1)):
     dependencies:

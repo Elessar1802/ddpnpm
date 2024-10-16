@@ -6,6 +6,7 @@
     "serve-dashboard": "pnpm --filter dashboard run serve",
     "dev-dashboard": "pnpm --filter dashboard run start",
     "build": "pnpm -r build",
+    "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "lint-staged": "pnpm -r lint-staged"
   },
