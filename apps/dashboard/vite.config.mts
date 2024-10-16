@@ -96,7 +96,15 @@ export default defineConfig(({ mode }) => {
     const baseConfig = {
         base: '/dashboard',
         preview: {
-            port: 3000,
+            host: true,
+            port: 8080,
+            proxy: {
+                '/orchestrator': {
+                    target: TARGET_URL,
+                    changeOrigin: true,
+                },
+                '/grafana': TARGET_URL,
+            },
         },
         build: {
             sourcemap: true,
