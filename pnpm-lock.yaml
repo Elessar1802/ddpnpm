@@ -13,6 +13,9 @@ importers:
       '@devtron-labs/devtron-fe-common-lib':
         specifier: workspace:*
         version: link:../../packages/devtron-fe-common-lib
+      '@devtron-labs/devtron-fe-lib':
+        specifier: workspace:*
+        version: link:../../packages/devtron-fe-lib
       '@esbuild-plugins/node-globals-polyfill':
         specifier: 0.2.3
         version: 0.2.3(esbuild@0.23.1)
@@ -519,6 +522,8 @@ importers:
       vite-tsconfig-paths:
         specifier: 5.0.1
         version: 5.0.1(typescript@5.5.4)(vite@5.4.6(@types/node@22.7.5)(sass@1.79.5)(terser@5.34.1))
+
+  packages/devtron-fe-lib: {}
 
 packages:
 
